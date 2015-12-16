@@ -27,9 +27,14 @@
 // Clicking on the button again should restore the full opacity of that person.
 
 // Good luck and have fun!
+
+
+
+
+// so made an array of students.
 var cohort = ['altamir','joe','liz','Prescott','scott','amber','kenzi','anthony','brooks','matthew','jeremy','natalie',
 'charlie','chris','eric','robby','nathan','zach','sam','paul','kristy','aesop',"Stop"];
-
+// put all my object liseners here.
 $(document).ready(function(){
 $('#container').append("<button class='theta'>Transendance Through Suffering</button>");
 $('#container').on('click', '.theta',nextUp);
@@ -37,32 +42,39 @@ $('#container').on('click', '.bye-bye',goAway);
 
 // console.log("is this thing on");
 });
-
+ //  felt like bucking the trend and not using a for loop today. brain was fried at this point, tried something simpler
+ // used a shift and then a push to cycle through the names on the array.
 function nextUp(){
 	// for(var i = 0;i<cohort.length;i++){
 	// console.log(cohort[i]);
 	// var value=cohort[i];
 	var value = cohort.shift()
 	cohort.push(value);
+	// used a conditional to reset the dom added a string to set it off, then cleared out all the kids with a remove, 
+	// finally it calls a function which re inserts the inital button.
 	if(value == "Stop" ){
 		console.log('fuck loops');
 	$('#container').children().remove();
 	restart();
 	}else {
+	// adds the employees to the dom with a button to fade the name/button.
 	$('#container').append('<div class="shape"></div>');
 	var $el=$('#container').children().last();
 	$el.append(value);
 	$el.append('<button class="bye-bye">Fade</button>');
+	// trying to put in some data just to check it out. could not get it to work.
 	$el.data("kitty", "FUCK U DATA"); 
 	}
 	}
+	// initally removed the cohort member, then changed to fading them with animate.
 	function goAway(){
 	$(this).parent().animate({opacity: .5},1000);	
-	
-	console.log($('.theta').data("kitty"));
+	// trying to find the data that i put out there. unable to find it.
+	console.log($('.bye-bye').data("kitty"));
 
 
 	}
+	// called after i remove everything. puts the inital button back.
 function restart(){
 	$('#container').append("<button class='theta'>Transendance Through Suffering</button>");
 }
