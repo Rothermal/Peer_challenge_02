@@ -60,7 +60,7 @@ function nextUp(){
 	// adds the employees to the dom with a button to fade the name/button.
 	$('#container').append('<div class="shape"></div>');
 	var $el=$('#container').children().last();
-	$el.append(value);
+	$el.append(value).hide().slideDown(5000);
 	$el.append('<button class="bye-bye">Fade</button>');
 	// trying to put in some data just to check it out. could not get it to work.
 	$el.data("kitty", "FUCK U DATA"); 
